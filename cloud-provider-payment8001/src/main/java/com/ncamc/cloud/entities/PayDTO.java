@@ -8,7 +8,7 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 
 /**
- * 和前端交互只能暴露DTO，不能暴露ENTITY，因为这样对方会反推后端的表结构
+ * 和前端交互只能暴露DTO，不能暴露entity，因为这样对方会反推后端的表结构
  */
 @AllArgsConstructor
 @NoArgsConstructor
