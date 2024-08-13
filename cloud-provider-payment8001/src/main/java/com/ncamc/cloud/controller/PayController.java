@@ -54,6 +54,9 @@ public class PayController {
     @GetMapping("/pay/get/{id}")
     @Operation(summary = "按照ID查流水",description = "查询支付流水方法")
     public ResultData<Pay> getById(@PathVariable("id") Integer id) {
+        if(id<=0) {
+            throw new RuntimeException("id不能为负数");
+        }
         Pay pay = payService.getById(id);
         return ResultData.success(pay);
     }
@@ -65,12 +68,12 @@ public class PayController {
         return ResultData.success(payList);
     }
 
-    @GetMapping("/pay/error")
-    public ResultData<Integer> getPayError(){
+    @GetMapping("/pay/error/{id}")
+    public ResultData<Integer> getPayError(@PathVariable("id") Integer id){
         Integer integer = Integer.valueOf(200);
         try {
             System.out.println("pay error test");
-            int age = 10/0;
+            int age = 10/id;
         } catch (Exception e){
             e.printStackTrace();
             return ResultData.fail(ReturnCodeEnum.RC500.getCode(), e.getMessage());
