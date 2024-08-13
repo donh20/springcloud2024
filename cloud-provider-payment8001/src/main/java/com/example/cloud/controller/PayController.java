@@ -23,13 +23,15 @@ public class PayController {
 
     @PostMapping("/pay/add")
     @Operation(summary = "新增",description = "新增支付流水方法,json串做参数")
-    public ResultData<String> addPay(@RequestBody Pay pay){
-        log.info(pay.toString());
+    public ResultData<String> addPay(@RequestBody PayDTO payDTO){
+        log.info(payDTO.toString());
+        Pay pay = new Pay();
+        BeanUtils.copyProperties(payDTO,pay);
         int i = payService.add(pay);
         return ResultData.success("成功插入记录，返回值:" +i);
     }
 
-    @PostMapping("/pay/del/{id}")
+    @DeleteMapping("/pay/del/{id}")
     @Operation(summary = "删除",description = "删除支付流水方法")
     public ResultData<Integer> deletePay(@PathVariable("id") Integer id){
         int i = payService.delete(id);
@@ -48,7 +50,6 @@ public class PayController {
         BeanUtils.copyProperties(payDTO,pay);
         int i = payService.update(pay);
         return ResultData.success("成功更新记录，返回值: "+i);
-
     }
 
     @GetMapping("/pay/get/{id}")
