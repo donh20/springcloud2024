@@ -1,6 +1,6 @@
 package com.ncamc.cloud.service.Impl;
 
-import com.ncamc.cloud.entities.Pay;
+import com.ncamc.cloud.entity.Pay;
 import com.ncamc.cloud.mapper.PayMapper;
 import com.ncamc.cloud.service.PayService;
 import jakarta.annotation.Resource;

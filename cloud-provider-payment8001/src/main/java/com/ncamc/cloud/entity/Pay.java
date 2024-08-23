@@ -1,4 +1,4 @@
-package com.ncamc.cloud.entities;
+package com.ncamc.cloud.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.v3.oas.annotations.media.Schema;

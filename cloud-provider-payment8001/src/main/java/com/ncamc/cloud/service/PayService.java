@@ -1,6 +1,6 @@
 package com.ncamc.cloud.service;
 
-import com.ncamc.cloud.entities.Pay;
+import com.ncamc.cloud.entity.Pay;
 
 import java.util.List;
 
