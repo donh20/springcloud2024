@@ -18,6 +18,12 @@
     </properties>
 
     <dependencies>
+        <!--SpringCloud consul discovery -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-consul-discovery</artifactId>
+        </dependency>
+
         <!--引入自定义的api公共包-->
         <dependency>
             <groupId>com.ncamc</groupId>
