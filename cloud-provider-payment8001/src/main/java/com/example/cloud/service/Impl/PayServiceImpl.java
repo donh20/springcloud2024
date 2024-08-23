@@ -1,6 +1,6 @@
 package com.example.cloud.service.Impl;
 
-import com.example.cloud.entities.Pay;
+import com.example.cloud.entity.Pay;
 import com.example.cloud.mapper.PayMapper;
 import com.example.cloud.service.PayService;
 import jakarta.annotation.Resource;

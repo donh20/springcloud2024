@@ -1,8 +1,9 @@
 package com.example.cloud.controller;
 
 import com.example.cloud.Enum.ReturnCodeEnum;
-import com.example.cloud.entities.Pay;
-import com.example.cloud.entities.PayDTO;
+import com.example.cloud.entity.Pay;
+
+import com.example.cloud.entity.PayDTO;
 import com.example.cloud.resp.ResultData;
 import com.example.cloud.service.PayService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -47,7 +48,7 @@ public class PayController {
     @Operation(summary = "修改",description = "修改支付流水方法")
     public ResultData<String> updatePay(@RequestBody PayDTO payDTO) {
         Pay pay = new Pay();
-        BeanUtils.copyProperties(payDTO,pay);
+        BeanUtils.copyProperties(payDTO, pay);
         int i = payService.update(pay);
         return ResultData.success("成功更新记录，返回值: "+i);
     }
