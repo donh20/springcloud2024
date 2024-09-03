@@ -11,6 +11,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -83,4 +84,12 @@ public class PayController {
         return ResultData.success(integer);
     }
 
+
+    @Value("${server.port}")
+    private String port;
+
+    @GetMapping("/pay/get/info")
+    public String getInfoByConsul(@Value("${app.info}") String info){
+        return "info: " + info + "\t"+"port: " + port;
+    }
 }
