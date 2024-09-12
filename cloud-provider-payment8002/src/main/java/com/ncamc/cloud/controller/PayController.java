@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 @RestController
 @Slf4j
@@ -59,6 +60,13 @@ public class PayController {
     public ResultData<Pay> getById(@PathVariable("id") Integer id) {
         if(id<=0) {
             throw new RuntimeException("id不能为负数");
+        }
+        //暂停62秒线程，测试feign的默认调用超时时间
+        try{
+            TimeUnit.SECONDS.sleep(62);
+
+        } catch (InterruptedException e){
+            e.printStackTrace();
         }
         Pay pay = payService.getById(id);
         return ResultData.success(pay);

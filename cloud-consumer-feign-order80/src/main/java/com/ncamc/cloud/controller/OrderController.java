@@ -1,5 +1,8 @@
 package com.ncamc.cloud.controller;
 
+import cn.hutool.core.date.DateUnit;
+import cn.hutool.core.date.DateUtil;
+import com.ncamc.cloud.Enum.ReturnCodeEnum;
 import com.ncamc.cloud.api.PayFeignApi;
 import com.ncamc.cloud.entity.PayDTO;
 import com.ncamc.cloud.resp.ResultData;
@@ -21,7 +24,16 @@ public class OrderController {
     @GetMapping("/feign/pay/get/{id}")
     public ResultData getPayInfo(@PathVariable("id") Integer id){
         System.out.println("-------支付微服务远程调用，按照id查询订单支付流水信息");
-        ResultData resultData = payFeignApi.getById(id);
+        ResultData resultData = null;
+
+        try {
+            System.out.println("调用开始------："+ DateUtil.now());
+            resultData = payFeignApi.getById(id);
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("调用结束------："+ DateUtil.now());
+            ResultData.fail(ReturnCodeEnum.RC201.getCode(),e.getMessage());
+        }
         return resultData;
     }
     /**
