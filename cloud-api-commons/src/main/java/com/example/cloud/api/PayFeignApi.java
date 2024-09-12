@@ -35,4 +35,8 @@ public interface PayFeignApi {
      */
     @GetMapping("/pay/get/info")
     public String mylb();
+
+
+    @GetMapping("/pay/circuit/{id}")
+    public String myCircuit(@PathVariable("id") Integer id);
 }
