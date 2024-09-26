@@ -19,3 +19,4 @@ mybatis:
   type-aliases-package: com.ncamc.cloud.entities
   configuration:
     map-underscore-to-camel-case: true
+
