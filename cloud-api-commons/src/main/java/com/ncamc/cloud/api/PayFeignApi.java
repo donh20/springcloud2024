@@ -10,7 +10,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 //相当于微服务提供者对外暴露了以下几个方法
-@FeignClient("cloud-payment-service")
+//@FeignClient("cloud-payment-service")
+@FeignClient("cloud-gateway")
 public interface PayFeignApi {
 
     /**
