@@ -89,7 +89,8 @@ public class PayController {
     private String port;
 
     @GetMapping("/pay/get/info")
-    public String getInfoByConsul(@Value("${ncamc.info}") String info){
-        return "info: " + info + "\t"+"port: " + port;
+    public ResultData<String> getInfoByConsul(@Value("${ncamc.info}") String info){
+//        return "info: " + info + "\t"+"port: " + port;
+        return ResultData.success("info: " + info + "\t"+"port: " + port);
     }
 }
